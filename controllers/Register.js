@@ -1,10 +1,12 @@
 const handleRegister = (req, res, db, bcrypt, saltRounds) => {
-	const { email, name, password } = req.body;	
-	const hash = bcrypt.hashSync(password, saltRounds);
-
+	const { email, name, password } = req.body;		
 	if (!email || !name || !password) {
 		return res.status(400).json('incorrect form submission');
 	}
+
+	console.log("email: " + email, "name: " + name, "password " + password);
+
+	const hash = bcrypt.hashSync(password, saltRounds);
 
 	db.transaction(trx => {
 		trx.insert({
@@ -33,4 +35,4 @@ const handleRegister = (req, res, db, bcrypt, saltRounds) => {
 
 module.exports = {
 	handleRegister: handleRegister
-}
+};

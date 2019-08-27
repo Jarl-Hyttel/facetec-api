@@ -1,4 +1,5 @@
-//  UPDATE COMMENT Reason for not using "from" explained previous
+// Node has not yet implemented ES6 import feature, so use standard require instead. 
+// Must export.module in each controller
 const express = require('express');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
